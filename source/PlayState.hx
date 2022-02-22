@@ -824,6 +824,22 @@ class PlayState extends MusicBeatState
 					fgTrees.antialiasing = false;
 				}
 
+				var bgTrees:FlxSprite = new FlxSprite(repositionShit - 380, -800);
+				bgTrees.frames = Paths.getPackerAtlas('weeb/weebTrees');
+				bgTrees.animation.add('treeLoop', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], 12);
+				bgTrees.animation.play('treeLoop');
+				bgTrees.scrollFactor.set(0.85, 0.85);
+				add(bgTrees);
+				bgTrees.antialiasing = false;
+
+				if(!ClientPrefs.lowQuality) {
+					var treeLeaves:BGSprite = new BGSprite('weeb/petals', repositionShit, -40, 0.85, 0.85, ['PETALS ALL'], true);
+					treeLeaves.setGraphicSize(widShit);
+					treeLeaves.updateHitbox();
+					add(treeLeaves);
+					treeLeaves.antialiasing = false;
+				}
+
 				bgSky.setGraphicSize(widShit);
 				bgSchool.setGraphicSize(widShit);
 				bgStreet.setGraphicSize(widShit);
